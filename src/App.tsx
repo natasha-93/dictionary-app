@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Definition from "./Definition";
+import styles from "./App.module.css";
 
 const { REACT_APP_API_KEY } = process.env;
 
 function App() {
+  const [readMore, setReadMore] = useState(false);
   const [word, setWord] = useState<string>();
   const [inputWord, setInputWord] = useState("");
   const [definitions, setDefinitions] = useState([]);
@@ -36,8 +38,8 @@ function App() {
   }, [word]);
 
   return (
-    <div>
-      <h2>Dictionary</h2>
+    <div className={styles.container}>
+      <h1>Dictionary</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -46,18 +48,34 @@ function App() {
         }}
       >
         <input
+          className={styles.searchBar}
           value={inputWord}
           placeholder="Enter a word or phrase.."
           onChange={(e) => {
             setInputWord(e.target.value);
           }}
         />
-        <button>Search</button>
+        <button className={styles.searchButton}>Search</button>
       </form>
+      <p style={{ fontStyle: "italic" }}>{word}</p>
       <ol>
-        {definitions.map((definition, index) => {
+        {definitions.slice(0, 4).map((definition, index) => {
           return <Definition key={index} definition={definition} />;
         })}
+
+        {readMore &&
+          definitions.slice(5).map((definition, index) => {
+            return <Definition key={index} definition={definition} />;
+          })}
+
+        {definitions.length > 4 && (
+          <button
+            className={styles.moreButton}
+            onClick={(e) => setReadMore(!readMore)}
+          >
+            {readMore ? "Read less" : "Read more"}
+          </button>
+        )}
       </ol>
     </div>
   );

@@ -1,0 +1,48 @@
+.container {
+  width: 600px;
+  justify-content: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.searchBar {
+  width: 300px;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.searchButton {
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.4;
+}
+
+.searchButton:hover,
+.moreButton:hover {
+  opacity: 70%;
+}
+
+.moreButton {
+  outline: none;
+  background-color: black;
+  opacity: 60%;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.4;
+  margin: 1rem 0;
+}
