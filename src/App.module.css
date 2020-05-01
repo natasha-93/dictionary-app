@@ -32,17 +32,17 @@ form {
 
 .searchButton:hover,
 .moreButton:hover {
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .moreButton {
   outline: none;
   background-color: black;
-  opacity: 60%;
+  opacity: 0.6;
   color: white;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  transition: 0.4;
+  transition: all 0.4;
   margin: 1rem 0;
 }
